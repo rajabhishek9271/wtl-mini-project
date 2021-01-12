@@ -1,0 +1,187 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block body_block %}
+
+    <div id="homeCarousel" class="carousel slide carousel-home" data-ride="carousel">
+
+          <!-- Indicators -->
+          <ol class="carousel-indicators">
+            <li data-target="#homeCarousel" data-slide-to="0" class="active"></li>
+            <li data-target="#homeCarousel" data-slide-to="1"></li>
+            <li data-target="#homeCarousel" data-slide-to="2"></li>
+          </ol>
+
+          <div class="carousel-inner" role="listbox">
+
+            <div class="item active">
+
+              <img style="height: 620px; object-fit: cover;" src="{% static 'assets/images/travancore/_MG_9054.JPG' %}" alt="">
+              <div class="container">
+
+                <div class="carousel-caption">
+
+                  <h2 class="carousel-title bounceInDown animated slow" style="background-color:#404040cc";>Volunteer</h2>
+                  <h4 class="carousel-subtitle bounceInUp animated slow "style="background-color:#404040cc";>“Service to others is the rent you pay for your room here on Earth.” — Muhammad Ali</h4>
+                  <a href="{% url 'donate' %}" class="btn btn-lg btn-secondary hidden-xs bounceInUp animated slow" data-toggle="modal">DONATE NOW</a>
+
+                </div> <!-- /.carousel-caption -->
+
+              </div>
+
+            </div> <!-- /.item -->
+
+
+            <div class="item ">
+
+              <img style="height: 620px; object-fit: cover;" src="https://images.unsplash.com/photo-1559633817-40d48f80e184?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80" alt="">
+
+              <div class="container">
+
+                <div class="carousel-caption">
+
+                  <h2 class="carousel-title bounceInDown animated slow" style="background-color:#40404080">Together we can improve their lives</h2>
+                  <h4 class="carousel-subtitle bounceInUp animated slow" style="background-color:#40404080"> So let's do it !</h4>
+                  <a href="{% url 'donate' %}" class="btn btn-lg btn-secondary hidden-xs bounceInUp animated" data-toggle="modal">DONATE NOW</a>
+
+                </div> <!-- /.carousel-caption -->
+
+              </div>
+
+            </div> <!-- /.item -->
+
+
+
+
+            <div class="item ">
+
+              <img style="height: 620px; object-fit: cover;" src="{% static 'assets/images/travancore/_MG_9023.JPG' %}" alt="">
+
+              <div class="container">
+
+                <div class="carousel-caption">
+
+                  <h2 class="carousel-title bounceInDown animated slow" style="background-color:#404040cc">A penny is a lot of money, if you have not got a penny.</h2>
+                  <h4 class="carousel-subtitle bounceInUp animated slow" style="background-color:#40404080">You can make the difference !</h4>
+                  <a href="{% url 'donate' %}" class="btn btn-lg btn-secondary hidden-xs bounceInUp animated slow" data-toggle="modal">DONATE NOW</a>
+
+                </div> <!-- /.carousel-caption -->
+
+              </div>
+
+            </div> <!-- /.item -->
+
+          </div>
+
+          <a class="left carousel-control" href="#homeCarousel" role="button" data-slide="prev">
+            <span class="fa fa-angle-left" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+          </a>
+
+          <a class="right carousel-control" href="#homeCarousel" role="button" data-slide="next">
+            <span class="fa fa-angle-right" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+          </a>
+
+    </div>
+
+
+    <a class="btn btn-lg FAB" href="{% url 'donate' %}">
+      Donate<br><i  class="fas fa-hand-holding-heart "></i><br>Now!
+
+    </a>
+
+
+    <div class="main-container fadeIn animated">
+
+  		<div class="container">
+
+  			<div class="row">
+                <section>
+
+  				<div class="col-md-7 col-sm-12 col-form">
+
+  					<h2 class="title-style-2">VOLUNTEER FORM <span class="title-under"></span></h2>
+
+  					<form method="POST" class="contact-form">{% csrf_token %}
+
+  						<div class="row" id="vol-form">
+
+          							<div class="form-group col-md-6" >
+                              <label for="name">NAME*</label>
+          	                        <input type="text" name="name" class="form-control" placeholder="Name" required>
+          	            </div>
+
+                        <div class="form-group col-md-6 " >
+                          <label for="gender" style="font-weight=600;">Gender*</label>
+                          <div class="col-sm-10">
+                            <label for="male" class="radio-inline"><input type="radio" name="gender" value="male" required  id="male"> MALE </label>
+                            <label for="female" class="radio-inline"><input type="radio" name="gender" value="female" required  id="female"> FEMALE </label>
+                            <label for="other" class="radio-inline"><input type="radio" name="gender" value="others" required  id="other"> OTHER </label>
+                          </div>
+                        </div>
+
+          	              <div class="form-group col-md-12">
+                           <label for="email">E-mail*</label>
+          	                   <input type="email" name="email" class="form-control" placeholder="E-mail" required>
+          	               </div>
+
+                            <div class="form-group col-md-6">
+                              <label for="contact">Contact*</label>
+                              	<input type="tel" name="contact" pattern="^[0-9]{10}$"
+                                title="Contact number should be of 10 digits only" class="form-control" placeholder="Contact no" required>
+                             </div>
+
+
+                             <div class="form-group col-md-6">
+                                   <label for="occupation">Occupation*</label>
+                                         <input type="text" name="occupation" class="form-control" placeholder="occupation" required>
+                             </div>
+
+
+                             <div class="form-group col-md-6">
+                                   <label for="city">City*</label>
+                                         <input type="text" name="city" class="form-control" placeholder="City" required>
+                             </div>
+
+                             <div class="form-group col-md-6">
+                                   <label for="pincode">Zipcode*</label>
+                                         <input type="zipcode" name="zipcode" class="form-control"
+                                          pattern="^[0-9]{6}$" title="Zipcode should be of 6 digits only" placeholder="Zipcode" required>
+                             </div>
+                           </div>
+
+
+                          <div class="form-group">
+                            <label for="message">Reason*</label>
+                              <textarea name="reason" rows="5" class="form-control" placeholder="Comment" required></textarea>
+                          </div>
+
+                          <!-- <div class="form-group alerts">
+
+                          	<div class="alert alert-success" role="alert">
+
+  							</div>
+
+  							<div class="alert alert-danger" role="alert">
+
+  							</div>
+
+                          </div> -->
+
+                           <div class="form-group">
+                              <button type="submit" class="btn btn-primary pull-right">Submit</button>
+                          </div>
+
+                          <!-- <div class="clearfix"></div> -->
+
+  					</form>
+                </section>
+                <section>
+                    <img class="volunteer-image" src="{% static 'assets\images\123.jpg' %}" alt="" >
+                </section>
+  				</div>
+        </div>
+      </div>
+
+
+{% endblock %}
