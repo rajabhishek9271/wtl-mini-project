@@ -30,7 +30,7 @@ class GalleryPage(View):
 class VolunteerPage(View):
     def get(self, request, *args, **kwargs):
 
-        return render(request, 'gallery.html')
+        return render(request, 'volunteer.html')
 
 
 class CausesPage(View):

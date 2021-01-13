@@ -30,6 +30,15 @@ DEBUG = True
 ALLOWED_HOSTS = []
 
 
+# SMTP EMAIL SETTINGS
+# EMAIL_HOST = 'smtp.gmail.com'
+# EMAIL_PORT = 587
+# EMAIL_HOST_USER = env("EMAIL")
+# EMAIL_HOST_PASSWORD = env("PASSWORD")
+# EMAIL_USE_TLS = True
+# EMAIL_USE_SSL = False
+
+
 # Application definition
 
 INSTALLED_APPS = [
@@ -82,6 +91,19 @@ DATABASES = {
         'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
+
+#
+# DATABASES = {
+#     'default': {
+#         'NAME': 'defaultdb',
+#         'ENGINE': 'django.db.backends.mysql',
+#         'USER': env('DATABASE_USER'),
+#         'PORT': 25060,
+#         'PASSWORD': env('DATABASE_PASS'),
+#         'HOST': env('DATABASE_HOST'),
+#
+#     }
+# }
 
 
 # Password validation
