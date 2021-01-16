@@ -11,7 +11,12 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 """
 
 import os
+import environ
 from pathlib import Path
+
+env = environ.Env()
+
+environ.Env.read_env()
 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -30,13 +35,13 @@ DEBUG = True
 ALLOWED_HOSTS = []
 
 
-# SMTP EMAIL SETTINGS
-# EMAIL_HOST = 'smtp.gmail.com'
-# EMAIL_PORT = 587
-# EMAIL_HOST_USER = env("EMAIL")
-# EMAIL_HOST_PASSWORD = env("PASSWORD")
-# EMAIL_USE_TLS = True
-# EMAIL_USE_SSL = False
+#SMTP EMAIL SETTINGS
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_HOST_USER = env("EMAIL")
+EMAIL_HOST_PASSWORD = env("PASSWORD")
+EMAIL_USE_TLS = True
+EMAIL_USE_SSL = False
 
 
 # Application definition
