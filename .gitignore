@@ -1,0 +1,5 @@
+charity/.env
+trust/.env
+charity/__pycache__
+trust/__pycache__
+trust/migrations/__pycache__

@@ -1,8 +1,9 @@
 from django.shortcuts import render, redirect
 from django.views.generic import View, TemplateView
-from . import mailHandler 
+from . import mailHandler
 from django.contrib import messages
 from . import models
+from charity import sheets
 from django.http import HttpResponseRedirect, HttpResponse
 
 
@@ -40,7 +41,7 @@ class ContactPage(View):
         new_contact.save()
 
         mailHandler.sendMailToUser(name, email)
-        mailHandler.sendMailToCharity(name, email, message)
+        mailHandler.sendMailToCharity(name, email, query)
         return redirect("contact")
 
 class GalleryPage(View):
@@ -53,7 +54,7 @@ class VolunteerPage(View):
     def get(self, request, *args, **kwargs):
 
         return render(request, 'volunteer.html')
-    
+
     def post(self, request, *args, **kwargs):
          form = request.POST
          name = form.get('name')
@@ -65,6 +66,8 @@ class VolunteerPage(View):
          zipcode = form.get('zipcode')
          reason = form.get('reason')
 
+         insertRow = ["name","email","gender","contact","occupation","city","zipcode","reason"]
+
          new_Volunteer = models.Volunteer.objects.create(
                             name = name,
                             email = email,
@@ -73,12 +76,13 @@ class VolunteerPage(View):
                             occupation = occupation,
                             city = city,
                             zipcode = zipcode,
-                            reason = reason,                            
-                            
+                            reason = reason,
+
          )
 
          new_Volunteer.save()
-
+         sheets.Volunteer(name,email,gender,contact,occupation,city,zipcode,reason)
+         return render(request, 'volunteer.html')
 
 
 
@@ -87,3 +91,10 @@ class CausesPage(View):
     def get(self, request, *args, **kwargs):
 
         return render(request, 'causes.html')
+
+
+class DonationPage(View):
+
+    def get(self, request, *args, **kwargs):
+
+        return render(request, 'donate.html')

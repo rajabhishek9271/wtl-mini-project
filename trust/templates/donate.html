@@ -2,295 +2,97 @@
 {% load static %}
 {% block body_block %}
 
-    <div id="homeCarousel" class="carousel slide carousel-home" data-ride="carousel">
-
-          <!-- Indicators -->
-          <ol class="carousel-indicators">
-            <li data-target="#homeCarousel" data-slide-to="0" class="active"></li>
-            <li data-target="#homeCarousel" data-slide-to="1"></li>
-            <li data-target="#homeCarousel" data-slide-to="2"></li>
-          </ol>
-
-          <div class="carousel-inner" role="listbox">
-
-            <div class="item active">
-
-              <img style="height: 520px; object-fit: cover;" src="{% static 'assets/images/travancore/_MG_8933.JPG' %}" alt="">
-
-              <div class="container">
-
-                <div class="carousel-caption">
-
-                  <h2 class="carousel-title bounceInDown animated slow" style="background-color:#404040cc">Because they need your help</h2>
-                  <h4 class="carousel-subtitle bounceInUp animated slow " style="background-color:#404040cc">Do not let them down</h4>
-                  <a href="donate.html" class="btn btn-lg btn-secondary hidden-xs bounceInUp animated slow" data-toggle="modal" data-target="#donateModal">DONATE NOW</a>
-
-                </div> <!-- /.carousel-caption -->
-
-              </div>
-
-            </div> <!-- /.item -->
-
-
-            <div class="item ">
-
-              <img style="height: 520px; object-fit: cover;" src="https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60" alt="">
-
-              <div class="container">
-
-                <div class="carousel-caption">
-
-                  <h2 class="carousel-title bounceInDown animated slow" style="background-color:#404040cc">Together we can improve their lives</h2>
-                  <h4 class="carousel-subtitle bounceInUp animated slow" style="background-color:#404040cc"> So let's do it !</h4>
-                  <a href="#" class="btn btn-lg btn-secondary hidden-xs bounceInUp animated" data-toggle="modal" data-target="#donateModal">DONATE NOW</a>
-
-                </div> <!-- /.carousel-caption -->
-
-              </div>
-
-            </div> <!-- /.item -->
-
-
-
-
-            <div class="item ">
-
-              <img style="height: 520px; object-fit: cover;" src="{% static 'assets/images/travancore/_MG_8985.jpg' %}" alt="">
-
-              <div class="container">
-
-                <div class="carousel-caption">
-
-                  <h2 class="carousel-title bounceInDown animated slow" style="background-color:#404040cc">A penny is a lot of money, if you have not got a penny.</h2>
-                  <h4 class="carousel-subtitle bounceInUp animated slow" style="background-color:#404040cc">You can make the difference !</h4>
-                  <a href="#" class="btn btn-lg btn-secondary hidden-xs bounceInUp animated slow" data-toggle="modal" data-target="#donateModal">DONATE NOW</a>
-
-                </div> <!-- /.carousel-caption -->
-
-              </div>
-
-            </div> <!-- /.item -->
-
-          </div>
-
-          <a class="left carousel-control" href="#homeCarousel" role="button" data-slide="prev">
-            <span class="fa fa-angle-left" aria-hidden="true"></span>
-            <span class="sr-only">Previous</span>
-          </a>
-
-          <a class="right carousel-control" href="#homeCarousel" role="button" data-slide="next">
-            <span class="fa fa-angle-right" aria-hidden="true"></span>
-            <span class="sr-only">Next</span>
-          </a>
-
-    </div>
-
-
     <div class="main-container fadeIn animated">
 
   		<div class="container">
 
+  			<div class="row">
+                <section>
 
-          <div class="row ">
+  				<div class="col-md-7 col-sm-12 col-form">
 
-            <div class="col-md-12 fadeIn animate-onscroll">
+  					<h2 class="title-style-2">VOLUNTEER FORM <span class="title-under"></span></h2>
 
-              <h2 class="title-style-2"> Donate Now <span class="title-under"></span></h2>
+  					<form method="POST" class="contact-form"> {% csrf_token %}
 
+  						<div class="row" id="vol-form">
 
-              <div role="tabpanel">
+          							<div class="form-group col-md-6" >
+                              <label for="name">NAME*</label>
+          	                        <input type="text" name="name" class="form-control" placeholder="Name" required>
+          	            </div>
 
-                <!-- Nav tabs -->
-                <ul class="nav nav-tabs" role="tablist">
-                  <li role="presentation" class="active"><a href="#regular" aria-controls="regular" role="tab" data-toggle="tab">Regular Donation</a></li>
-                  <li role="presentation"><a href="#anonymous" aria-controls="anonymous" role="tab" data-toggle="tab">Anonymous Donation</a></li>
-                </ul>
+                        <div class="form-group col-md-6 " >
+                          <label for="gender" style="font-weight=600;">Gender*</label>
+                          <div class="col-sm-10">
+                            <label for="male" class="radio-inline"><input type="radio" name="gender" value="male" required  id="male"> MALE </label>
+                            <label for="female" class="radio-inline"><input type="radio" name="gender" value="female" required  id="female"> FEMALE </label>
+                            <label for="other" class="radio-inline"><input type="radio" name="gender" value="others" required  id="other"> OTHER </label>
+                          </div>
+                        </div>
 
-                <!-- Tab panes -->
-                <div class="tab-content">
-                  <div role="tabpanel" class="tab-pane active" id="regular">
-                    <section>
-
-              <div class="col-md-7 col-sm-12 col-form">
-
-
-
-                <form name="regular" method="POST" class="contact-form">{% csrf_token %}
-
-                  <div class="row">
-
-                            <div class="form-group col-md-6">
-                                  <label for="dfname">FIRST NAME*</label>
-                                        <input type="text" name="fname" class="form-control" placeholder="Name" required>
-                            </div>
+          	              <div class="form-group col-md-12">
+                           <label for="email">E-mail*</label>
+          	                   <input type="email" name="email" class="form-control" placeholder="E-mail" required>
+          	               </div>
 
                             <div class="form-group col-md-6">
-                                  <label for="dlname">LAST NAME*</label>
-                                        <input type="text" name="lname" class="form-control" placeholder="Name" required>
-                            </div>
-
-                            <div class="form-group col-md-6">
-                              <label for="dgender">Gender*</label>
-                              <div class="col">
-                                <label for="male" class="radio-inline"><input type="radio" name="gender" value="Male" required  id="male"> MALE </label>
-                                <label for="female" class="radio-inline"><input type="radio" name="gender" value="Female" required  id="female"> FEMALE </label>
-                                <label for="other" class="radio-inline"><input type="radio" name="gender" value="Others" required  id="other"> OTHER </label>
-                              </div>
-                            </div>
-
-                              <div class="form-group col-md-6">
-                               <label for="email">E-mail*</label>
-                                   <input type="email" name="email" class="form-control" placeholder="E-mail" required>
-                               </div>
-
-                                <div class="form-group col-md-6">
-                                  <label for="dcontact">Contact*</label>
-                                    <input type="tel" name="contact" pattern="^[0-9]{10}$"
-                                    title="Contact number should be of 10 digits only" class="form-control" placeholder="Contact no" required>
-                                 </div>
+                              <label for="contact">Contact*</label>
+                              	<input type="tel" name="contact" pattern="^[0-9]{10}$"
+                                title="Contact number should be of 10 digits only" class="form-control" placeholder="Contact no" required>
+                             </div>
 
 
-                                 <div class="form-group col-md-6">
-                                       <label for="doccupation">Occupation*</label>
-                                             <input type="text" name="occupation" class="form-control" placeholder="occupation" required>
-                                 </div>
+                             <div class="form-group col-md-6">
+                                   <label for="occupation">Occupation*</label>
+                                         <input type="text" name="occupation" class="form-control" placeholder="occupation" required>
+                             </div>
 
 
-                                 <div class="form-group col-md-6">
-                                       <label for="dcity">City*</label>
-                                             <input type="text" name="city" class="form-control" placeholder="City" required>
-                                 </div>
+                             <div class="form-group col-md-6">
+                                   <label for="city">City*</label>
+                                         <input type="text" name="city" class="form-control" placeholder="City" required>
+                             </div>
 
-                                 <div class="form-group col-md-12">
-                                       <label for="dpincode">Zipcode*</label>
-                                      <input type="zipcode" name="zipcode" class="form-control" pattern="^[0-9]{6}$" title="Zipcode should be of 6 digits only" placeholder="Zipcode" required>
-                                 </div>
+                             <div class="form-group col-md-6">
+                                   <label for="pincode">Zipcode*</label>
+                                         <input type="zipcode" name="zipcode" class="form-control"
+                                          pattern="^[0-9]{6}$" title="Zipcode should be of 6 digits only" placeholder="Zipcode" required>
+                             </div>
+                           </div>
 
-                                 <div class="form-group col-md-6">
-                                   <label for="dtype">Type Of Donation*</label>
 
-                                     <select onchange="onSelectType()" id="type1" class="form-control" name="type" placeholder="Type" required>
-                                       <option value="null">-------Select an option-------</option>
-                                       <option value="Money">Money</option>
-                                       <option value="Livelihood">Livelihood</option>
-                                       <option value="Education">Education</option>
-                                       <option value="Snacks">Health</option>
-                                       <option value="Misc">Miscellaneous</option>
-                                     </select>
-
-                                 </div>
-
-                                 <div id="money" class="form-group col-md-6">
-                                       <label for="dpincode">Amount*</label>
-                                             <input type="number" title="Please enter a valid amount."  name="amount" class="form-control"
-                                              placeholder="Amount">
-                                 </div>
-
-                                </div>
-                              <div class="form-group alerts">
-
-                                <div class="alert alert-success" role="alert">
-
-                    </div>
-
-                    <div class="alert alert-danger" role="alert">
-
-                    </div>
-
-                              </div>
-
-                               <div class="form-group">
-                                  <button name="submit1" type="submit" class="btn btn-primary pull-right">Donate</button>
-                              </div>
-
-                              <div class="clearfix"></div>
-
-                </form>
-                    </section>
-                  </div>
-
-                  <div role="tabpanel" class="tab-pane" id="anonymous">
-                    <section>
-                      <form method="POST" class="contact-form">{% csrf_token %}
-
-                        <div class="row">
-                                  <div class="form-group col-md-6">
-                                        <label for="dpincode">Zipcode*</label>
-                                              <input type="zipcode" name="zipcode" class="form-control" pattern="^[0-9]{6}$" title="Zipcode should be of 6 digits only" placeholder="Zipcode" required>
-                                  </div>
-                                       <div class="form-group col-md-6">
-                                         <label for="dtype">Type Of Donation*</label>
-
-                                           <select id="type2" onchange="onSelectType2()" class="form-control" name="type" placeholder="Type" required>
-                                             <option value="null">--------Select an option-------</option>
-                                             <option value="Money">Money</option>
-                                             <option value="Livelihood">Livelihood</option>
-                                             <option value="Education">Education</option>
-                                             <option value="Snacks">Health</option>
-                                             <option value="Misc">Miscellaneous</option>
-                                           </select>
-
-                                       </div>
-
-                                     <!-- <div activeclass="form-group col-md-6">
-                                       <label for="damount">Amount*</label>
-                                         <input type="number" name="damount" min="1" step="any" class="form-control" placeholder="Enter the amount" required>
-                                      </div> -->
-
-                                      </div>
-                                      <div class="row">
-
-                                        <div id="money2" class="form-group col-md-6">
-                                              <label for="">Amount*</label>
-                                                    <input type="zipcode" name="amount" class="form-control"
-                                                     placeholder="Amount">
-                                        </div>
-
-                                        <div id="email1" class="form-group col-md-6">
-                                              <label for="">Email*</label>
-                                              <div class="popup" onclick="showPopup()">
-                                                <input type="email" name="email" class="form-control" placeholder="Email">
-                                              <span class="popuptext" id="myPopup">
-                                                We only need your email to send you payment receipt.<br><br>
-                                                We won't be storing your email in our database.
-                                              </span>
-                                            </div>
-                                        </div>
-
-                                      </div>
-                                    <div class="form-group alerts">
-
-                                      <div class="alert alert-success" role="alert">
-
+                          <div class="form-group">
+                            <label for="message">Reason*</label>
+                              <textarea name="reason" rows="5" class="form-control" placeholder="Comment" required></textarea>
                           </div>
 
-                          <div class="alert alert-danger" role="alert">
+                          <!-- <div class="form-group alerts">
 
+                          	<div class="alert alert-success" role="alert">
+
+  							</div>
+
+  							<div class="alert alert-danger" role="alert">
+
+  							</div>
+
+                          </div> -->
+
+                           <div class="form-group">
+                              <button type="submit" class="btn btn-primary pull-right">Submit</button>
                           </div>
 
-                                    </div>
+                          <!-- <div class="clearfix"></div> -->
 
-                                     <div class="form-group">
-                                        <button name="submit2" type="submit" class="btn btn-primary">Donate</button>
-                                    </div>
-
-                                    <div class="clearfix"></div>
-
-                      </form>
-                    </section>
-                  </div>
-                </div>
-
-
-              </div>
-            </div>
-          </div>
-
-
-
+  					</form>
+                </section>
+                <section>
+                    <img class="volunteer-image" src="{% static 'assets\images\123.jpg' %}" alt="" >
+                </section>
+  				</div>
         </div>
       </div>
-      <script src="{% static 'assets/js/donate.js' %}"></script>
 
 
 {% endblock %}

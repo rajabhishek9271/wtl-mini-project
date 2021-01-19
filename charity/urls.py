@@ -25,4 +25,5 @@ urlpatterns = [
     path('contact/',views.ContactPage.as_view(),name='contact'),
     path('volunteer/',views.VolunteerPage.as_view(),name='volunteer'),
     path('causes/',views.CausesPage.as_view(),name='causes'),
+    path('donate/',views.CausesPage.as_view(),name='donate')
 ]
