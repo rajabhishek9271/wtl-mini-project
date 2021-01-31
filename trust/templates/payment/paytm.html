@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% block body_block %}
+{% load static %}
+<section>
+
+      <center>
+        <img src="{% static 'assets/images/loader.gif' %}" alt="">
+         <h1>Please do not refresh this page...</h1>
+      </center>
+      <!-- <form method="post" action="https://securegw-stage.paytm.in/order/process" name="paytm">
+         <table border="1">
+            <tbody>
+               <input type="hidden" name="MID" value="EjztyH50793958301159">
+               <input type="hidden" name="WEBSITE" value="WEBSTAGING">
+               <input type="hidden" name="ORDER_ID" value="dddgfgfeeed">
+               <input type="hidden" name="CUST_ID" value="aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa">
+               <input type="hidden" name="MOBILE_NO" value="9999999999">
+               <input type="hidden" name="EMAIL" value="acfff@paytm.com">
+               <input type="hidden" name="INDUSTRY_TYPE_ID" value="Retail">
+               <input type="hidden" name="CHANNEL_ID" value="WEB">
+               <input type="hidden" name="TXN_AMOUNT" value="1">
+               <input type="hidden" name="CALLBACK_URL" value="https://www.google.com">
+               <input type="hidden" name="CHECKSUMHASH" value="GENERATED_CHECKSUM_VALUE">
+            </tbody>
+         </table>
+         <script type="text/javascript">
+            document.paytm.submit();
+         </script>
+      </form> -->
+      <form class=""action="https://securegw-stage.paytm.in/order/process" method="post" name="paytm">
+        {% csrf_token %}
+        {% for key, value in param_dict.items %}
+        <input hidden style="width: 700px;"name="{{key}}" value="{{value}}"><br>
+        {% endfor %}
+      </form>
+
+   <script type="text/javascript">
+      document.paytm.submit();
+   </script>
+
+ </section>
+{% endblock %}

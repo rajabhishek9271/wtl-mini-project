@@ -16,3 +16,18 @@ def Volunteer(name, email, gender, contact, occupation, city, zipcode, reason):
     data = my_sheet.get_all_records()
     insertRow = [name, email, gender, contact, occupation, city, zipcode, reason]
     my_sheet.insert_row(insertRow, len(data)+2)
+
+
+def RegularDonation(name, email, contact, gender, occupation, city, zipcode, type, amount, id):
+    my_sheet = sheet.worksheets()[1]
+    data = my_sheet.get_all_records()
+
+    insertRow = [name, email, contact, gender, occupation, city, zipcode, type, amount, id]
+    my_sheet.insert_row(insertRow, len(data)+2)
+
+def AnonymousDonation(zipcode, type, amount, id):
+    my_sheet = sheet.worksheets()[2]
+    # sheet = client.open("Travancore").sheet2
+    data = my_sheet.get_all_records()
+    insertRow = [zipcode, type, amount, id]
+    my_sheet.insert_row(insertRow, len(data)+2)

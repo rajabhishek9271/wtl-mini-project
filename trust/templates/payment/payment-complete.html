@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% block body_block %}
+{% load static %}
+<section style="padding-bottom: 150px; background: #dedede;">
+
+<div style="background: #dedede; width: 100%" class="container">
+  {% if status %}
+        <h1 style="margin-top: 150px; color: #C38937" class="text-center">Thank You for your kind donation!</h1>
+        <h2 class="text-center">Payment Status of Order Id- {{ order_id }}:</h2>
+
+  {% else %}
+        <h1 style="margin-top: 150px;" class="text-center">Transaction failed.</h1>
+  {% endif %}
+    <p style="font-weight:bold;" class="text-center">{{ response }}</p>
+    {% if status %}
+        <p style="font-weight:bold;" class="text-center">Bank Transaction ID: {{ banktxnid }}</p>
+        <br>
+        <p style="font-weight:bold;" class="text-center">Amount: Rs.{{ txn_amount }}</p>
+        <p style="font-weight:bold;" class="text-center">We have sent you an email of your receipt.</p><br>
+
+    {% endif %}
+
+</div>
+
+</section>
+{% endblock %}

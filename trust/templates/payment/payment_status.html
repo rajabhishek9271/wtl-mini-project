@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% block body_block %}
+{% load static %}
+<section>
+  <p></p>
+
+  <center>
+    <img src="{% static 'assets/images/loader.gif' %}" alt="">
+
+    <strong><h4 class="text-center">Please wait while your transaction is being processed...</h4></strong>
+    <strong><h4 class="text-center">Please do not refresh this page.</h4></strong>
+  </center>
+  <form name="payment" action="{% url 'payment-complete' %}" method="post">
+    {% csrf_token %}
+    <input hidden type="" name="order_id" value="{{ response.ORDERID }}">
+    <input hidden type="" name="response" value="{{ response.RESPMSG }}">
+    <input hidden type="" name="txn_amount" value="{{ response.TXNAMOUNT }}">
+    <input hidden type="" name="bankid" value="{{ response.BANKTXNID }}">
+    <input hidden name="respcode" value="{{ response.RESPCODE }}">
+  </form>
+</section>
+<script type="text/javascript">
+   document.payment.submit();
+</script>
+
+{% endblock %}
